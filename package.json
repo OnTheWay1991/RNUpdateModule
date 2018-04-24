@@ -1,0 +1,33 @@
+{
+  "name": "RNUpdateModule",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "configureJPush": "node node_modules/jpush-react-native/JPushConfiguration.js",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "cleanup": "rm -rf ./public/ios && rm -rf ./public/android",
+    "server": "node ./server/bin/www",
+    "bundle": "npm run bundleIOS && npm run bundleAndroid",
+    "bundleIOS": "rm -rf ./public/ios && mkdir -p ./public/ios && react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ./public/ios/index.ios.bundle --assets-dest ./public",
+    "bundleAndroid": "rm -rf ./public/android && mkdir -p ./public/android && react-native bundle --entry-file index.js --platform android --dev false --bundle-output ./public/android/index.android.bundle --assets-dest ./public/android",
+    "test": "jest --watch",
+    "makeppk": "./packPPK.sh",
+    "makeandroid": "echo N|pushy bundle --platform android",
+    "makeios": "echo N|pushy bundle --platform ios",
+    "buildAndroid": "react-native run-android --variant=release"
+  },
+  "dependencies": {
+    "react": "16.3.1",
+    "react-native": "0.55.3",
+    "react-native-update": "^5.0.0"
+  },
+  "devDependencies": {
+    "babel-jest": "22.4.3",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "22.4.3",
+    "react-test-renderer": "16.3.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
