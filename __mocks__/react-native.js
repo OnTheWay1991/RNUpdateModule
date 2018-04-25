@@ -59,7 +59,7 @@ function reloadUpdate(obj) {
 // rnUpdate.reloadUpdate = reloadUpdate;
 rnUpdate.reloadUpdate = jest.fn();
 
-bridgeNativeModule.packageName = "com.rnupdate0424";
+bridgeNativeModule.packageName = "com.rnupdatemodule";
 bridgeNativeModule.versionCode = rnUpdate.vcode;
 
 ReactNative.NativeModules.HotUpdate = rnUpdate;

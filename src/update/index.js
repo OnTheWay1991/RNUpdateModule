@@ -20,13 +20,12 @@ const platform = Platform.select({
 export function getOption() {
   return {
     phash: currentVersion,
-    package: packageName,
+    packageName: packageName,
     type: platform,
     vcode: packageVersion
   }
 }
 export function setSuccessUpdate() {
-
   isFirstTime ? markSuccess() : void 0; // set flag if first success time start after update
 }
 

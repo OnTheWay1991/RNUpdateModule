@@ -17,7 +17,7 @@ class UpdateProgressBar extends Component {
         }
 
         this.timerInterval = null;
-        this.hash = ''; // for android progress speed up
+        this.hash = '';
         this.initInterval = 1000;
         this.step = 1;
     }
@@ -55,12 +55,6 @@ class UpdateProgressBar extends Component {
             this.step = 5
         }
     }
-
-
-    // shouldComponentUpdate(nextProps, nextState) {
-    // 	return nextState.progress !== this.state.progress;
-    // }
-
     progressIOS(params, step) {
         let {received, total} = params,
             percent = Math.ceil((received / total) * 50);
@@ -77,7 +71,7 @@ class UpdateProgressBar extends Component {
     }
 
     autoIncreament() {
-        if (this.progressEnd()) { // clear first step to prevent setState after unmount
+        if (this.progressEnd()) {
             let {progress} = this.state, nextValue = progress + this.step;
             this.setState({
                 progress: nextValue < 99 ? nextValue : 99
