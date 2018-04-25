@@ -121,7 +121,7 @@ android {
             //KEY_ALIAS，KEY_PASSWORD，STORE_PASSWORD写在项目根目录下的gradle.properties里
             keyAlias KEY_ALIAS
             keyPassword KEY_PASSWORD
-            storeFile file('../soyouarehere.keystore')
+            storeFile file('../soyouarehere.jks')
             storePassword STORE_PASSWORD
         }
     }
