@@ -3,8 +3,8 @@
  */
 
 const HotUpdate = require('react-native').NativeModules.HotUpdate;
-import { NativeAppEventEmitter, Platform } from 'react-native';
-import { packageName } from '../BridgeNativeModule';
+import {NativeAppEventEmitter, Platform} from 'react-native';
+import {packageName} from '../BridgeNativeModule';
 
 export const downloadRootDir = HotUpdate.downloadRootDir;
 export const packageVersion = HotUpdate.packageVersion;
@@ -14,40 +14,44 @@ export const isRolledBack = HotUpdate.isRolledBack;
 
 
 const platform = Platform.select({
-  ios: 2,
-  android: 1,
+    ios: 2,
+    android: 1,
 });
+
 export function getOption() {
-  return {
-    phash: currentVersion,
-    packageName: packageName,
-    type: platform,
-    vcode: packageVersion
-  }
+    return {
+        phash: currentVersion,
+        packageName: packageName,
+        type: platform,
+        vcode: packageVersion
+    }
 }
+
 export function setSuccessUpdate() {
-  isFirstTime ? markSuccess() : void 0; // set flag if first success time start after update
+    isFirstTime ? markSuccess() : void 0; // set flag if first success time start after update
 }
 
 export async function downloadUpdate(options) {
-  await HotUpdate.downloadUpdate({
-    updateUrl: options.url,
-    hashName: options.phash,
-  });
-  // }
-  return options.phash;
+    console.log("====================提交参数===============")
+    console.log(options);
+    await HotUpdate.downloadUpdate({
+        updateUrl: options.url,
+        hashName: options.phash,
+    });
+    // }
+    return options.phash;
 }
 
 export async function switchVersion(hash) {
-  HotUpdate.reloadUpdate({ hashName: hash });
+    HotUpdate.reloadUpdate({hashName: hash});
 }
 
 export async function switchVersionLater(hash) {
-  HotUpdate.setNeedUpdate({ hashName: hash });
+    HotUpdate.setNeedUpdate({hashName: hash});
 }
 
 export function markSuccess() {
-  HotUpdate.markSuccess();
+    HotUpdate.markSuccess();
 }
 
 

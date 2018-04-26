@@ -49,7 +49,6 @@ export default class UpdateSplash extends Component {
             },
             getOption(),
             {   host: Config.updateHost,  contentType: "application/x-www-form-urlencoded;charset=utf-8" }
-        // {   host: Config.updateHost,  contentType: "application/json;charset=utf-8" }
         );
     }
     getButtonList() {
@@ -85,6 +84,8 @@ export default class UpdateSplash extends Component {
                         }}
                         onLoadBegin={() => {
                             this.downFile(info, (err, hash) => {
+                                console.log("===============开始下载==========");
+                                console.log(info);
                                 if (!err) {
                                     this.hash = hash;
                                     this.UpdateProgressBar.end(hash);

@@ -32,7 +32,7 @@ let HttpTool = {
                     message: json.message,
                     body: json.body,
                 };
-                successCallback(option.code, option.message, json, option);
+                successCallback(option.code, option.message, json.body, option);
             })
             .catch((err) => {
                 console.log("-----------------------error---------------------------");
