@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     rootView:{
         flex: 1,
         flexDirection: "column",
-        backgroundColor: "black"
+        backgroundColor: "white"
     },
     welcome: {
         fontSize: 20,
