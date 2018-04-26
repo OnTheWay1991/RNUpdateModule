@@ -43,6 +43,7 @@ export async function downloadUpdate(options) {
 }
 
 export async function switchVersion(hash) {
+    console.log("switchVersion:"+hash);
     HotUpdate.reloadUpdate({hashName: hash});
 }
 

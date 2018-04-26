@@ -1,6 +1,7 @@
 package com.rnupdatemodule;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.facebook.react.ReactApplication;
 
@@ -19,6 +20,7 @@ public class MainApplication extends Application implements ReactApplication {
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
     protected String getJSBundleFile() {
+      Log.e("lxd==>","加载jsbundle 文件资源文件: "+UpdateContext.getBundleUrl(MainApplication.this));
       return UpdateContext.getBundleUrl(MainApplication.this);
     }
     @Override
